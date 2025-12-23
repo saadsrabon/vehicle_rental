@@ -42,8 +42,11 @@ The database consists of **three core tables**:
 
 ---
 
-Viva Video Link:https://www.youtube.com/shorts/VMiubhyOoVk
-Erd Link: https://lucid.app/lucidchart/c0fd9c84-7d02-41b2-b610-99c7e56724c0/edit?view_items=aIzg9tKKXa2q&page=0_0&invitationId=inv_60e7f4db-a6ca-4b38-a698-6765fe79f2c3
+### Viva Video Link:https://www.youtube.com/shorts/VMiubhyOoVk 
+
+
+### Erd Link: https://lucid.app/lucidchart/c0fd9c84-7d02-41b2-b610-99c7e56724c0/edit?view_items=aIzg9tKKXa2q&page=0_0&invitationId=inv_60e7f4db-a6ca-4b38-a698-6765fe79f2c3
+
 ##  Tables Description
 
 ###  Users Table
