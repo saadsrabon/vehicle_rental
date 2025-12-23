@@ -1,6 +1,6 @@
-# 🚗 Vehicle Rental System – Database Design & SQL Queries
+#  Vehicle Rental System – Database Design & SQL Queries
 
-## 📌 Project Overview
+##  Project Overview
 
 This project demonstrates the **database design and SQL query implementation** for a **Vehicle Rental System** using **PostgreSQL**.  
 The main objective of this project is to apply **relational database concepts**, **Entity Relationship Diagram (ERD) design**, and **SQL querying** based on real-world business scenarios.
@@ -18,19 +18,11 @@ This project covers:
 
 ---
 
-## 🗂️ Project Structure
-
-Vehicle-Rental-System/
-│
-├── README.md
-├── query.sql
-├── erd.png # ERD diagram image
-└── demo-video-link.txt
 
 
 ---
 
-## 🧱 Database Design (ERD)
+##  Database Design (ERD)
 
 The database consists of **three core tables**:
 
@@ -44,14 +36,16 @@ The database consists of **three core tables**:
 - Each **Booking** is linked to **exactly one User and one Vehicle**
 
 ### ERD Diagram
-📌 **Insert ERD image here**  
+
 `erd.png`
 
 ---
 
-## 🧾 Tables Description
+Viva Video Link:https://www.youtube.com/shorts/VMiubhyOoVk
+Erd Link: https://lucid.app/lucidchart/c0fd9c84-7d02-41b2-b610-99c7e56724c0/edit?view_items=aIzg9tKKXa2q&page=0_0&invitationId=inv_60e7f4db-a6ca-4b38-a698-6765fe79f2c3
+##  Tables Description
 
-### 🧑 Users Table
+###  Users Table
 Stores system users including admins and customers.
 
 **Key fields:**
@@ -62,7 +56,7 @@ Stores system users including admins and customers.
 
 ---
 
-### 🚘 Vehicles Table
+###  Vehicles Table
 Stores vehicle details available for rent.
 
 **Key fields:**
@@ -72,8 +66,7 @@ Stores vehicle details available for rent.
 - `status` (available / rented / maintenance)
 
 ---
-
-### 📅 Bookings Table
+###  Bookings Table
 Stores booking and rental information.
 
 **Key fields:**
@@ -86,13 +79,13 @@ Stores booking and rental information.
 
 ---
 
-## 📄 SQL Queries Explanation (`queries.sql`)
+##  SQL Queries Explanation (`queries.sql`)
 
 All SQL queries are written and tested using **PostgreSQL**.
 
 ---
 
-### 1️⃣ Retrieve Booking Information with Customer and Vehicle Names
+### 1️ Retrieve Booking Information with Customer and Vehicle Names
 
 **Purpose:**  
 Display booking details along with the customer name and vehicle name.
@@ -110,13 +103,15 @@ INNER JOIN users AS u
   ON b.user_id = u.user_id
 INNER JOIN vehicles AS v
   ON b.vehicle_id = v.vehicle_id;
+  ```
 
+#### Explanation:  Here what we did is  join the both table so that we can get all the column and then showed them as boking table dont have the vehicles details except the vehicel_id
 
-##Find Vehicles That Have Never Been Booked
+### Find Vehicles That Have Never Been Booked
 
-Purpose:
+** Purpose: **
 Retrieve vehicles that do not exist in the bookings table.
-
+```sql
 SELECT *
 FROM vehicles v
 WHERE NOT EXISTS (
@@ -124,27 +119,33 @@ WHERE NOT EXISTS (
   FROM bookings b
   WHERE b.vehicle_id = v.vehicle_id
 );
+```
 Concepts used:
 NOT EXISTS, correlated subquery
+ #### Explanation : In this query we are  using a subquery so its going for each vehicle id and trying to match on booking table if found then it will return otherwise nothing will happen
 
-Retrieve All Vehicles of Type "Car"
+### Retrieve All Vehicles of Type "Car"
 
 Purpose:
 Filter vehicles by type.
 
+```
 SELECT *
 FROM vehicles
 WHERE type = 'car';
-
+```
 
 Concepts used:
 WHERE clause, filtering
 
-Find Vehicles with More Than 2 Bookings
+#### Explanation :Here we are simply finding out by types using where
+
+### Find Vehicles with More Than 2 Bookings
 
 Purpose:
 Count total bookings per vehicle and show only vehicles with more than two bookings.
 
+```
 SELECT
     v.name AS vehicle_name,
     COUNT(b.booking_id) AS total_bookings
@@ -154,8 +155,11 @@ JOIN vehicles v
 GROUP BY
     v.vehicle_id, v.name
 HAVING
-    COUNT(b.booking_id) > 2;
+    COUNT(b.booking_id) > 2;```
 
 
 Concepts used:
-JOIN, GROUP BY, COUNT, HAVING
+JOIN, GROUP BY, COUNT, HAVING 
+```
+
+#### Explanation : Herer we are joining Vehicle and Book table and using name aliases for easy reading  and  grouping them by name and id and as we know we can use having on group data so we are using to check the value if it is more than 2 or not
