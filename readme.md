@@ -37,7 +37,8 @@ The database consists of **three core tables**:
 
 ### ERD Diagram
 
-`erd.png`
+![ERD Diagram](erd.png)
+
 
 ---
 
